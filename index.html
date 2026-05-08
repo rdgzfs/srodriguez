@@ -239,7 +239,7 @@
 
         try {
 
-          // URL encoded request to avoid preflight
+          // URL encoded request to reduce preflight issues
 
           const formData =
             new URLSearchParams();
@@ -249,15 +249,8 @@
             JSON.stringify(payload)
           );
 
-          // TEST BODY TOKEN AUTH
-
-          formData.append(
-            "api_token",
-            "r-38YFbMy8Wt_yMoT_7hj0TbAcTm2vXGOYEl8nKh3E8"
-          );
-
-          const response = await fetch(
-            "https://api.invoca.net/leads/07b49087-f467-4402-bf1e-8ebbbab8b77f",
+          await fetch(
+            "http://127.0.0.1:5050",
             {
               method: "POST",
 
@@ -266,25 +259,10 @@
               headers: {
                 "Content-Type":
                   "application/x-www-form-urlencoded"
-                "Authorization":
-                  "Bearer r-38YFbMy8Wt_yMoT_7hj0TbAcTm2vXGOYEl8nKh3E8"
               },
 
               body: formData
             }
-          );
-
-          console.log(
-            "Status:",
-            response.status
-          );
-
-          const responseText =
-            await response.text();
-
-          console.log(
-            "Response:",
-            responseText
           );
 
           alert("Submitted!");
