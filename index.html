@@ -106,13 +106,6 @@
     />
 
     <input
-      type="text"
-      id="consumer_name"
-      placeholder="Full Name"
-      required
-    />
-
-    <input
       type="email"
       id="email"
       placeholder="Email"
@@ -204,9 +197,7 @@
               lastName,
 
             consumer_name:
-              document.getElementById(
-                "consumer_name"
-              ).value,
+              firstName + " " + lastName,
 
             email_address:
               document.getElementById(
