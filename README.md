@@ -7,4 +7,4 @@ Simple GitHub Pages test site for:
 - SPA behavior testing
 
 Live site:
-https://srodriguez.github.io
+[https://rdgzfs.github.io/](https://rdgzfs.github.io/srodriguez/)
