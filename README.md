@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Test Site</title>
-</head>
-<body>
-  <h1>My Test Site Works 🎉</h1>
-  <p>Hello from GitHub Pages.</p>
-</body>
-</html>
+# Test Site
+
+Simple GitHub Pages test site for:
+- GTM testing
+- Invoca tag testing
+- JavaScript experiments
+- SPA behavior testing
+
+Live site:
+https://YOURUSERNAME.github.io
