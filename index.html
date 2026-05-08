@@ -1,268 +1,134 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-  <title>Lead Form Test</title>
-
-  <!-- Invoca Tag -->
-  <script>
-    (function(i,n,v,o,c,a) {
-      i.InvocaTagId = o;
-
-      var s = n.createElement('script');
-
-      s.type = 'text/javascript';
-
-      s.async = true;
-
-      s.src =
-        ('https:' === n.location.protocol ? 'https://' : 'http://') +
-        v;
-
-      var fs = n.getElementsByTagName('script')[0];
-
-      fs.parentNode.insertBefore(s, fs);
-
-    })(
-      window,
-      document,
-      'solutions.invocacdn.com/js/invoca-latest.min.js',
-      '2967/1491503369'
-    );
-  </script>
-
-  <style>
-
-    body {
-      font-family: Arial;
-      max-width: 500px;
-      margin: 40px auto;
-    }
-
-    input,
-    button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      box-sizing: border-box;
-    }
-
-    .checkbox {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .checkbox input {
-      width: auto;
-    }
-
-    pre {
-      background: #f4f4f4;
-      padding: 10px;
-      overflow: auto;
-      white-space: pre-wrap;
-    }
-
-    .phone-display {
-      margin-bottom: 30px;
-      padding: 15px;
-      background: #f5f5f5;
-      border-radius: 6px;
-      font-size: 22px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-  </style>
-
-</head>
-
-<body>
-
-  <h1>Lead Form Test</h1>
-
-  <!-- Test Phone Number For Invoca Swap -->
-  <div class="phone-display">
-    Call Us: (512) 555-8489
-  </div>
-
-  <form id="leadForm">
-
-    <input
-      type="text"
-      id="first_name"
-      placeholder="First Name"
-      required
-    />
-
-    <input
-      type="text"
-      id="last_name"
-      placeholder="Last Name"
-      required
-    />
-
-    <input
-      type="email"
-      id="email"
-      placeholder="Email"
-      required
-    />
-
-    <input
-      type="tel"
-      id="phone"
-      placeholder="+15555555555"
-      required
-    />
-
-    <!-- Hidden Attribution Field -->
-    <input
-      type="hidden"
-      id="invoca_attribution_id"
-      name="invoca_attribution_id"
-    />
-
-    <div class="checkbox">
-
-      <input
-        type="checkbox"
-        id="smsConsent"
-      />
-
-      <label for="smsConsent">
-        SMS Consent
-      </label>
-
+  <head>
+    <title>Lead Form Test</title>
+    <!-- Invoca Tag -->
+    <script>
+      (function (i, n, v, o, c, a) {
+        i.InvocaTagId = o;
+        var s = n.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = (
+          'https:' === n.location.protocol
+            ? 'https://'
+            : 'http://'
+        ) + v;
+        var fs = n.getElementsByTagName('script')[0];
+        fs.parentNode.insertBefore(s, fs);
+      })(window, document, 'solutions.invocacdn.com/js/invoca-latest.min.js', '2967/1491503369');
+    </script>
+    <style>
+      body {
+        font-family: Arial;
+        max-width: 500px;
+        margin: 40px auto;
+      }
+      input,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        box-sizing: border-box;
+      }
+      .checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .checkbox input {
+        width: auto;
+      }
+      pre {
+        background: #f4f4f4;
+        padding: 10px;
+        overflow: auto;
+        white-space: pre-wrap;
+      }
+      .phone-display {
+        margin-bottom: 30px;
+        padding: 15px;
+        background: #f5f5f5;
+        border-radius: 6px;
+        font-size: 22px;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lead Form Test</h1>
+    <!-- Phone Number For Invoca Swap Testing -->
+    <div class="phone-display">
+      Call Us: (512) 555-8489
     </div>
-
-    <button type="submit">
-      Submit
-    </button>
-
-  </form>
-
-  <h3>Generated Payload</h3>
-
-  <pre id="output"></pre>
-
-  <script>
-
-    function generateUUID() {
-      return crypto.randomUUID();
-    }
-
-    function generateInvocaAttributionId() {
-
-      return (
-        "2967/1491503369/i-" +
-        generateUUID()
-      );
-    }
-
-    // Populate hidden attribution field
-
-    document.getElementById(
-      "invoca_attribution_id"
-    ).value = generateInvocaAttributionId();
-
-    document
-      .getElementById("leadForm")
-      .addEventListener("submit", async (e) => {
-
+    <form id="leadForm">
+      <input type="text" id="first_name" placeholder="First Name" required/>
+      <input type="text" id="last_name" placeholder="Last Name" required/>
+      <input type="text" id="consumer_name" placeholder="Full Name" required/>
+      <input type="email" id="email" placeholder="Email" required/>
+      <input
+      type="tel" id="phone" placeholder="+15555555555" required/>
+      <!-- Hidden Attribution Field -->
+      <input type="hidden" id="invoca_attribution_id" name="invoca_attribution_id"/>
+      <div class="checkbox">
+        <input type="checkbox" id="smsConsent"/>
+        <label for="smsConsent">
+          SMS Consent
+        </label>
+      </div>
+      <button type="submit">
+        Submit
+      </button>
+    </form>
+    <h3>Generated Payload</h3>
+    <pre id="output"></pre>
+    <script>
+      function generateUUID() {
+        return crypto.randomUUID();
+      }
+      function generateInvocaAttributionId() {
+        return("2967/1491503369/i-" + generateUUID());
+      }
+      // Populate hidden attribution field
+      document.getElementById("invoca_attribution_id").value = generateInvocaAttributionId();
+      document.getElementById("leadForm").addEventListener("submit", async (e) => {
         e.preventDefault();
-
-        const firstName =
-          document.getElementById("first_name").value;
-
-        const lastName =
-          document.getElementById("last_name").value;
-
-        const fullName =
-          firstName + " " + lastName;
-
+        const firstName = document.getElementById("first_name").value;
+        const lastName = document.getElementById("last_name").value;
         const payload = {
-
           external_id: generateUUID(),
-
           event_data: {
-
-            occurred_at:
-              new Date().toISOString(),
-
+            occurred_at: new Date().toISOString(),
             first_name: firstName,
-
             last_name: lastName,
-
-            consumer_name: fullName,
-
-            email_address:
-              document.getElementById("email").value,
-
-            phone_number:
-              document.getElementById("phone").value,
-
-            sms_consent:
-              document.getElementById("smsConsent").checked,
-
-            invoca_attribution_id:
-              document.getElementById(
-                "invoca_attribution_id"
-              ).value
+            consumer_name: document.getElementById("consumer_name").value,
+            email_address: document.getElementById("email").value,
+            phone_number: document.getElementById("phone").value,
+            sms_consent: document.getElementById("smsConsent").checked,
+            invoca_attribution_id: document.getElementById("invoca_attribution_id").value
           }
         };
-
-        document.getElementById("output").textContent =
-          JSON.stringify(payload, null, 2);
-
-        try {
-
-          const response = await fetch(
-            "https://api.invoca.net/leads/07b49087-f467-4402-bf1e-8ebbbab8b77f",
-            {
-              method: "POST",
-
-              mode: "cors",
-
-              headers: {
-                "Content-Type": "application/json",
-
-                "Authorization":
-                  "Bearer r-38YFbMy8Wt_yMoT_7hj0TbAcTm2vXGOYEl8nKh3E8"
-              },
-
-              body: JSON.stringify(payload)
-            }
-          );
-
-          const responseText =
-            await response.text();
-
-          console.log(
-            "Status:",
-            response.status
-          );
-
-          console.log(
-            "Response:",
-            responseText
-          );
-
+        // Display payload on page
+        document.getElementById("output").textContent = JSON.stringify(payload, null, 2);
+        try { // URL encoded request to reduce preflight issues
+          const formData = new URLSearchParams();
+          formData.append("payload", JSON.stringify(payload));
+          await fetch("https://api.invoca.net/leads/07b49087-f467-4402-bf1e-8ebbbab8b77f", {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: formData
+          });
           alert("Submitted!");
-
         } catch (err) {
-
           console.error(err);
-
-          alert(
-            "Error submitting form. Check console."
-          );
+          alert("Error submitting form. Check console.");
         }
       });
-
-  </script>
-
-</body>
+    </script>
+  </body>
 </html>
