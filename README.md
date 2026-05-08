@@ -7,4 +7,4 @@ Simple GitHub Pages test site for:
 - SPA behavior testing
 
 Live site:
-https://YOURUSERNAME.github.io
+https://srodriguez.github.io
