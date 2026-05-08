@@ -91,17 +91,17 @@
 
   <form id="leadForm">
 
-    <input
+    <!-- <input
       type="text"
       id="first_name"
       placeholder="First Name"
       required
-    />
+    /> -->
 
     <input
       type="text"
-      id="last_name"
-      placeholder="Last Name"
+      id="name"
+      placeholder="Name"
       required
     />
 
@@ -175,11 +175,11 @@
 
         e.preventDefault();
 
-        const firstName =
-          document.getElementById("first_name").value;
+        // const firstName =
+        //   document.getElementById("first_name").value;
 
-        const lastName =
-          document.getElementById("last_name").value;
+        const fullName =
+          document.getElementById("name").value;
 
         const payload = {
 
@@ -190,14 +190,14 @@
             occurred_at:
               new Date().toISOString(),
 
-            first_name:
-              firstName,
+            // first_name:
+            //   firstName,
 
-            last_name:
-              lastName,
+            // last_name:
+            //   lastName,
 
             consumer_name:
-              firstName + " " + lastName,
+              fullName,
 
             email_address:
               document.getElementById(
