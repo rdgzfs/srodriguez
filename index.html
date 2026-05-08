@@ -239,30 +239,31 @@
 
         try {
 
-          // URL encoded request to reduce preflight issues
-
-          const formData =
-            new URLSearchParams();
-
-          formData.append(
-            "payload",
-            JSON.stringify(payload)
-          );
-
-          await fetch(
-            "http://127.0.0.1:5050",
+          const response = await fetch(
+            "http://localhost:5050/submit",
             {
               method: "POST",
 
-              mode: "cors",
-
               headers: {
                 "Content-Type":
-                  "application/x-www-form-urlencoded"
+                  "application/json"
               },
 
-              body: formData
+              body: JSON.stringify(payload)
             }
+          );
+
+          console.log(
+            "Status:",
+            response.status
+          );
+
+          const responseText =
+            await response.text();
+
+          console.log(
+            "Response:",
+            responseText
           );
 
           alert("Submitted!");
