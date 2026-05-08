@@ -239,7 +239,7 @@
 
         try {
 
-          // URL encoded request to reduce preflight issues
+          // URL encoded request to avoid preflight
 
           const formData =
             new URLSearchParams();
@@ -247,6 +247,13 @@
           formData.append(
             "payload",
             JSON.stringify(payload)
+          );
+
+          // TEST BODY TOKEN AUTH
+
+          formData.append(
+            "api_token",
+            "r-38YFbMy8Wt_yMoT_7hj0TbAcTm2vXGOYEl8nKh3E8"
           );
 
           const response = await fetch(
@@ -264,9 +271,18 @@
               body: formData
             }
           );
+
           console.log(
             "Status:",
             response.status
+          );
+
+          const responseText =
+            await response.text();
+
+          console.log(
+            "Response:",
+            responseText
           );
 
           alert("Submitted!");
