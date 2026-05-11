@@ -120,11 +120,11 @@
     />
 
     <!-- Hidden Attribution Field -->
-    <input
+    <!--<input
       type="hidden"
       id="invoca_attribution_id"
       name="invoca_attribution_id"
-    />
+    /> -->
 
     <div class="checkbox">
 
@@ -175,6 +175,9 @@
 
         e.preventDefault();
 
+        const invocaAttributionId =
+  generateInvocaAttributionId();
+
         // const firstName =
         //   document.getElementById("first_name").value;
 
@@ -215,9 +218,7 @@
               ).checked,
 
             invoca_attribution_id:
-              document.getElementById(
-                "invoca_attribution_id"
-              ).value
+              invocaAttributionId
           }
         };
 
